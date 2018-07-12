@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.6">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause/>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.buildtriggerbadge.BuildTriggerBadgeAction plugin="buildtriggerbadge@2.3">
+      <cause class="hudson.model.Cause$UserIdCause" reference="../../hudson.model.CauseAction/causeBag/entry/hudson.model.Cause_-UserIdCause"/>
+    </org.jenkinsci.plugins.buildtriggerbadge.BuildTriggerBadgeAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="workflow-cps-global-lib@2.3">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+  </actions>
+  <queueId>5</queueId>
+  <timestamp>1531401051571</timestamp>
+  <startTime>1531401051573</startTime>
+  <result>FAILURE</result>
+  <duration>11003</duration>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>FAILURE</result>
+    <script>node {
+   echo &apos;Hello World&apos; &gt; hello.txt
+}
+
+archiveArtifacts artifacts: &apos;hello.txt&apos;, excludes: null</script>
+    <loadedScripts class="map"/>
+    <sandbox>true</sandbox>
+    <iota>7</iota>
+    <head>1:7</head>
+  </execution>
+  <checkouts class="hudson.util.PersistedList"/>
+</flow-build>

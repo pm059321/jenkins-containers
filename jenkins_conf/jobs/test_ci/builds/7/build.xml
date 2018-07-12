@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.6">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause/>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.plugins.jobConfigHistory.JobConfigBadgeAction plugin="jobConfigHistory@2.15">
+      <configDates>
+        <string>2018-07-12_13-46-24</string>
+        <string>2018-07-12_13-45-14</string>
+      </configDates>
+    </hudson.plugins.jobConfigHistory.JobConfigBadgeAction>
+    <org.jenkinsci.plugins.buildtriggerbadge.BuildTriggerBadgeAction plugin="buildtriggerbadge@2.3">
+      <cause class="hudson.model.Cause$UserIdCause" reference="../../hudson.model.CauseAction/causeBag/entry/hudson.model.Cause_-UserIdCause"/>
+    </org.jenkinsci.plugins.buildtriggerbadge.BuildTriggerBadgeAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="workflow-cps-global-lib@2.3">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+  </actions>
+  <queueId>14</queueId>
+  <timestamp>1531403186298</timestamp>
+  <startTime>1531403186300</startTime>
+  <result>SUCCESS</result>
+  <duration>21405</duration>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>SUCCESS</result>
+    <script>node {
+    stage &quot;Create build output&quot;
+    
+    // Make the output directory.
+    sh &quot;mkdir -p output&quot;
+
+    // Write an useful file, which is needed to be archived.
+    writeFile file: &quot;output/usefulfile.txt&quot;, text: &quot;This file is useful, need to archive it.&quot;
+
+    // Write an useless file, which is not needed to be archived.
+    writeFile file: &quot;output/uselessfile.md&quot;, text: &quot;This file is useless, no need to archive it.&quot;
+
+    stage &quot;Archive build output&quot;
+    
+    // Archive the build output artifacts.
+    archiveArtifacts artifacts: &apos;output/*.txt&apos;, excludes: &apos;output/*.md&apos;
+}</script>
+    <loadedScripts class="map"/>
+    <sandbox>true</sandbox>
+    <iota>13</iota>
+    <head>1:13</head>
+  </execution>
+  <checkouts class="hudson.util.PersistedList"/>
+</flow-build>

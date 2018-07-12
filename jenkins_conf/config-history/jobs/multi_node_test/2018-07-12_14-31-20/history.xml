@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.jobConfigHistory.HistoryDescr plugin="jobConfigHistory@2.15">
+  <user>Anonym</user>
+  <userId>anonymous</userId>
+  <operation>Renamed</operation>
+  <timestamp>2018-07-12_14-31-20</timestamp>
+  <currentName>multi_node_test</currentName>
+  <oldName>CI_TEST</oldName>
+</hudson.plugins.jobConfigHistory.HistoryDescr>
